@@ -1,0 +1,36 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  height: 100vh;
+  gap: 10px;
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+main {
+  grid-area: main;
+  padding: 10px;
+}
+
+stepper-header {
+  grid-area: stepper-header;
+}
+
+stepper-body {
+  grid-area: stepper-body;
+}
+
+footer {
+  grid-area: footer;
+}

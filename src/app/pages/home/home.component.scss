@@ -1,0 +1,8 @@
+.stepper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-areas:
+    "stepper-header"
+    "stepper-body";
+  gap: 10px;
+}
