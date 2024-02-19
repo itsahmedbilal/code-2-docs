@@ -1,3 +1,26 @@
 .choose-source-layout {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  .options {
+    flex-basis: 50%;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
 
+.drop-zone {
+  flex-basis: 50%;
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.drop-zone p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
 }

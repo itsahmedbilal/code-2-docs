@@ -1,35 +1,75 @@
+import { ButtonModule } from 'primeng/button';
 import { Component, OnInit } from '@angular/core';
 import { StepsModule } from 'primeng/steps';
 import { CardModule } from 'primeng/card';
 import { StepModel } from '../../models/step.model';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { DividerModule } from 'primeng/divider';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { ChooseSourceComponent } from './choose-source/choose-source.component';
+import { SelectLanguageComponent } from './select-language/select-language.component';
+import { ChooseResultComponent } from './choose-result/choose-result.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [StepsModule, CardModule, RouterOutlet, DividerModule],
+  imports: [
+    StepsModule,
+    CardModule,
+    RouterOutlet,
+    DividerModule,
+    ChooseSourceComponent,
+    SelectLanguageComponent,
+    ChooseResultComponent,
+    ReactiveFormsModule,
+    ButtonModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
+  form!: FormGroup;
+
   readonly steps: StepModel[] = [
-    { label: 'Choose the Source', routerLink: '/home/choose-the-source' },
+    { label: 'Choose The Source' },
     {
       label: 'Choose Programming Language',
-      routerLink: '/home/choose-programming-language',
     },
-    { label: 'Choose the Result', routerLink: '/home/choose-the-result' },
+    { label: 'Choose The Result' },
   ];
-  activeIndex: number;
+  activeIndex = 0;
 
-  constructor(private router: Router) {
-    if (this.router.url === '/home') {
-      this.router.navigate(['/']);
-    }
-    this.activeIndex = 0;
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.activeIndex = 1;
+    this.form = this.fb.group({
+      source: this.fb.group({
+        selectedOption: ['', Validators.required],
+      }),
+    });
   }
+
+  onActiveIndexChange(event: number): void {
+    this.activeIndex = event;
+  }
+
+  onNext(): void {
+    if (this.activeIndex < 3) {
+      this.activeIndex = this.activeIndex + 1;
+      console.log(this.activeIndex);
+    }
+  }
+
+  onBack() {
+    if (this.activeIndex > -1) {
+      this.activeIndex = this.activeIndex - 1;
+    }
+  }
+
+  onSubmit(): void {}
 }

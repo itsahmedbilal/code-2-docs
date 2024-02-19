@@ -1,1 +1,1 @@
-export interface StepModel { label: string; routerLink: string; }
+export interface StepModel { label: string; routerLink?: string; }

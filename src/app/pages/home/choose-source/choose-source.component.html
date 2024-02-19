@@ -1,13 +1,70 @@
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '360px' }">
-  <ng-template pTemplate="header">
-      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
-  </ng-template>
-  <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-      quas!
-  </p>
-  <ng-template pTemplate="footer">
-      <p-button label="Save" icon="pi pi-check"></p-button>
-      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-  </ng-template>
+<p-card
+  [header]="'Step 1: Choose the Source' | titlecase"
+  [subheader]="'Please select the following' | titlecase"
+>
+  <div class="choose-source-layout">
+    <div class="options">
+      <p-radioButton
+        name="selected-source"
+        value="system"
+        [(ngModel)]="selectedSource"
+        inputId="rb1"
+      ></p-radioButton>
+      <label for="rb1">
+        <img class="icon" src="assets/folder.png" alt="" />
+        Select Folder
+      </label>
+
+      <p-radioButton
+        name="selected-source"
+        value="github"
+        [(ngModel)]="selectedSource"
+        inputId="rb2"
+      ></p-radioButton>
+      <label for="rb2">
+        <img class="icon" src="assets/github.png" alt="" />
+        Github
+      </label>
+
+      <p-radioButton
+        name="selected-source"
+        value="servers"
+        [(ngModel)]="selectedSource"
+        inputId="rb3"
+      ></p-radioButton>
+      <label for="rb3">
+        <img src="assets/servers.png" alt="" />
+        Server Path
+      </label>
+
+      <p-radioButton
+        name="selected-source"
+        value="code"
+        [(ngModel)]="selectedSource"
+        inputId="rb4"
+      ></p-radioButton>
+      <label for="rb4">
+        <img src="assets/code.png" alt="" />
+        Text
+      </label>
+    </div>
+    @if(selectedSource === 'system') { @if(selectedSource === 'system') {
+    <ng-container [formGroup]="sourceFromGroup">
+      <div
+        class="drop-zone"
+        (dragover)="onDragOver($event)"
+        (drop)="onDrop($event)"
+      >
+        <input
+          type="file"
+          (change)="onFolderSelect($event)"
+          webkitdirectory
+          directory
+          multiple
+        />
+        <p>Drag & drop files here</p>
+      </div>
+    </ng-container>
+    } }
+  </div>
 </p-card>

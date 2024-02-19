@@ -1,0 +1,23 @@
+.btn {
+    padding: 15px 22px;
+    margin: 0;
+    display: inline-block;
+    background: #EBB367;
+    color: #0E1722;
+    font-family: $base-font-sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    min-width: 182px;
+    text-align: center;
+
+    &:hover {
+        color: #fff;
+        background: darken($color: #EBB367, $amount: 20%);
+    }
+
+    @include media('<tablet')  {
+        padding: 10px 22px;
+    }
+}
