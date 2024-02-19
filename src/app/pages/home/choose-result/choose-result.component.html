@@ -1,0 +1,23 @@
+<p-card
+  [header]="'Step 3: Choose the Results' | titlecase"
+  [subheader]="'Please select the following' | titlecase"
+>
+  <div class="choose_results">
+    <form [formGroup]="resultForm">
+      <div class="btn-holder group">
+        @for (option of options; track $index) {
+        <div class="p-field-radiobutton">
+          <p-radioButton
+            [value]="option.value"
+            formControlName="selected"
+          ></p-radioButton>
+          <label for="{{ option.id }}">
+            <img [src]="'assets/' + option.image" [alt]="option.image" />
+            {{ option.label }}
+          </label>
+        </div>
+        }
+      </div>
+    </form>
+  </div>
+</p-card>

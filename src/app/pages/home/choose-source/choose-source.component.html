@@ -48,7 +48,7 @@
         Text
       </label>
     </div>
-    @if(selectedSource === 'system') { @if(selectedSource === 'system') {
+    @if(selectedSource === 'system') {
     <ng-container [formGroup]="sourceFromGroup">
       <div
         class="drop-zone"
@@ -57,6 +57,7 @@
       >
         <input
           type="file"
+          formControlName="path"
           (change)="onFolderSelect($event)"
           webkitdirectory
           directory
@@ -65,6 +66,6 @@
         <p>Drag & drop files here</p>
       </div>
     </ng-container>
-    } }
+    }
   </div>
 </p-card>

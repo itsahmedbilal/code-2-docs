@@ -1,1 +1,22 @@
-<p>select-language works!</p>
+<p-card
+  [header]="'Step 2: Choose the Programming Language' | titlecase"
+  [subheader]="'Please select the following' | titlecase"
+>
+  <div class="language_section">
+    <ng-container [formGroup]="languageFrom">
+      @for (item of languages; track item) {
+      <div class="p-field-radiobutton">
+        <p-radioButton
+          [inputId]="item"
+          [value]="item"
+          formControlName="selected"
+        ></p-radioButton>
+        <label [for]="item">
+          <img [src]="'assets/' + item.toLowerCase() + '.png'" alt="" />
+          {{ item }}
+        </label>
+      </div>
+      }
+    </ng-container>
+  </div>
+</p-card>

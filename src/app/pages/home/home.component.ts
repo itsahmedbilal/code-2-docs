@@ -1,5 +1,5 @@
 import { ButtonModule } from 'primeng/button';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { StepsModule } from 'primeng/steps';
 import { CardModule } from 'primeng/card';
 import { StepModel } from '../../models/step.model';
@@ -31,8 +31,9 @@ import { ChooseResultComponent } from './choose-result/choose-result.component';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   form!: FormGroup;
 
   readonly steps: StepModel[] = [
@@ -44,12 +45,16 @@ export class HomeComponent implements OnInit {
   ];
   activeIndex = 0;
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       source: this.fb.group({
-        selectedOption: ['', Validators.required],
+        path: ['', Validators.required],
+      }),
+      language: this.fb.group({
+        selected: ['Java', Validators.required],
+      }),
+      output: this.fb.group({
+        type: ['', Validators.required],
       }),
     });
   }
