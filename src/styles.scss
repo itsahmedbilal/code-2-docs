@@ -305,3 +305,17 @@ img {
     }
   }
 }
+
+
+.active {
+  padding: 10px 20px;
+  border-radius: 10px;
+  min-width: 220px;
+  margin: 10px;
+  background: #c41f3e;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}

@@ -6,7 +6,12 @@
     <form [formGroup]="resultForm">
       <div class="btn-holder group">
         @for (option of options; track $index) {
-        <div class="p-field-radiobutton">
+        <div
+          class="p-field-radiobutton"
+          [ngClass]="{
+            active: resultForm.get('selected')?.value === option.value
+          }"
+        >
           <p-radioButton
             [value]="option.value"
             formControlName="selected"

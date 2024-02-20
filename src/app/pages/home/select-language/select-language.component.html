@@ -5,7 +5,12 @@
   <div class="language_section">
     <ng-container [formGroup]="languageFrom">
       @for (item of languages; track item) {
-      <div class="p-field-radiobutton">
+      <div
+        class="p-field-radiobutton"
+        [ngClass]="{
+          active: languageFrom.get('selected')?.value === item
+        }"
+      >
         <p-radioButton
           [inputId]="item"
           [value]="item"

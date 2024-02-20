@@ -4,7 +4,7 @@
 >
   <div class="choose-source-layout">
     <div class="btn-holder">
-      <div class="btn-box">
+      <div class="btn-box" [class.active]="selectedSource === 'system'">
         <p-radioButton
           name="selected-source"
           value="system"
@@ -17,7 +17,7 @@
           Select Folder
         </label>
       </div>
-      <div class="btn-box">
+      <div class="btn-box" [class.active]="selectedSource === 'github'">
         <p-radioButton
           name="selected-source"
           value="github"
@@ -30,7 +30,7 @@
           Github
         </label>
       </div>
-      <div class="btn-box">
+      <div class="btn-box" [class.active]="selectedSource === 'servers'">
         <p-radioButton
           name="selected-source"
           value="servers"
@@ -43,7 +43,7 @@
           Server Path
         </label>
       </div>
-      <div class="btn-box">
+      <div class="btn-box" [class.active]="selectedSource === 'code'">
         <p-radioButton
           name="selected-source"
           value="code"
@@ -64,25 +64,35 @@
         (dragover)="onDragOver($event)"
         (drop)="onDrop($event)"
       >
-      <label for="file" class="file-holder">
-        <input
-          type="file"
-          formControlName="path"
-          (change)="onFolderSelect($event)"
-          webkitdirectory
-          directory
-          multiple
-          class="dummyInput"
-        />
-        <span class="upload-icon">
-          <img class="icon" src="assets/file.png" alt="" />
-        </span>
-        <h3 class="dynamic-message"> Drag &amp; drop any file here </h3>
-        <span class="or">&amp;</span>
-        <span class="browse-files-text"><span> Browse File </span> from device </span>
+        <label for="file" class="file-holder">
+          <input
+            type="file"
+            formControlName="path"
+            (change)="onFolderSelect($event)"
+            class="dummyInput"
+          />
+          <span class="upload-icon">
+            <i class="pi pi-folder"></i>
+          </span>
+          <h3 class="dynamic-message">Drag &amp; drop any file here</h3>
+          <span class="or">&amp;</span>
+          <span class="browse-files-text"
+            ><span> Browse File </span> from device</span
+          >
         </label>
       </div>
     </ng-container>
-    }
+
+    @if (selectedFiles.length) {
+    <div class="selected-files">
+      @for(file of selectedFiles; track $index) {
+      <div class="file-item">
+        <i class="pi pi-file file-icon"></i>
+        <span class="file-name">{{ file.name }}</span>
+        <i class="pi pi-times remove-icon" (click)="removeFile(i)"></i>
+      </div>
+      }
+    </div>
+    } }
   </div>
 </p-card>
