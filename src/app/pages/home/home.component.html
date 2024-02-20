@@ -4,22 +4,24 @@
     [readonly]="false"
     [activeIndex]="activeIndex"
     [exact]="true"
-    (activeIndexChange)="onActiveIndexChange($event)"
+    (activeIndexChange)="onActiveIndexChange($event)">
   ></p-steps>
   <p-divider type="solid"></p-divider>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    @switch(activeIndex){ @case (0) {<app-choose-source
-      [form]="form"
-    ></app-choose-source>
-    } @case (1) {<app-select-language [form]="form"></app-select-language> }
-    @case (2) {<app-choose-result [form]="form"></app-choose-result> }
-    @default{<app-choose-source [form]="form"></app-choose-source>} }
-    @if(activeIndex === 2 && this.form.valid) {<p-button
-      type="submit"
-      label="Generate"
-    ></p-button
-    >}
-  </form>
+  <div [@stepperAnimation]="activeIndex">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      @switch(activeIndex){ @case (0) {<app-choose-source
+        [form]="form"
+      ></app-choose-source>
+      } @case (1) {<app-select-language [form]="form"></app-select-language> }
+      @case (2) {<app-choose-result [form]="form"></app-choose-result> }
+      @default{<app-choose-source [form]="form"></app-choose-source>} }
+      @if(activeIndex === 2 && this.form.valid) {<p-button
+        type="submit"
+        label="Generate"
+      ></p-button
+      >}
+    </form>
+  </div>
   <ng-container>
     <div class="button-container">
       <p-button

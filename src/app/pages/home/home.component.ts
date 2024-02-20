@@ -1,5 +1,5 @@
 import { ButtonModule } from 'primeng/button';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { StepsModule } from 'primeng/steps';
 import { CardModule } from 'primeng/card';
 import { StepModel } from '../../models/step.model';
@@ -14,6 +14,8 @@ import {
 import { ChooseSourceComponent } from './choose-source/choose-source.component';
 import { SelectLanguageComponent } from './select-language/select-language.component';
 import { ChooseResultComponent } from './choose-result/choose-result.component';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-home',
@@ -31,7 +33,18 @@ import { ChooseResultComponent } from './choose-result/choose-result.component';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('stepperAnimation', [
+      transition(':increment', [
+        style({ opacity: 0, transform: 'translateX(100%)' }),
+        animate('300ms ease-in-out', style({ opacity: 1, transform: 'translateX(0)' }))
+      ]),
+      transition(':decrement', [
+        style({ opacity: 0, transform: 'translateX(-100%)' }),
+        animate('300ms ease-in-out', style({ opacity: 1, transform: 'translateX(0)' }))
+      ]),
+    ])
+  ]
 })
 export class HomeComponent {
   form!: FormGroup;

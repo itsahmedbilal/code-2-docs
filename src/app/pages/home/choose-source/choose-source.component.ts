@@ -23,7 +23,7 @@ interface MenuOptions {
   styleUrl: './choose-source.component.scss',
 })
 export class ChooseSourceComponent {
-  selectedSource: string = 'system';
+  selectedSource: string = '';
   @Input() form!: FormGroup;
 
   constructor() {}
