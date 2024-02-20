@@ -3,20 +3,23 @@
   [subheader]="'Please select the following' | titlecase"
 >
   <div class="language_section">
-    <ng-container [formGroup]="languageFrom">
-      @for (item of languages; track item) {
-      <div class="p-field-radiobutton">
-        <p-radioButton
-          [inputId]="item"
-          [value]="item"
-          formControlName="selected"
-        ></p-radioButton>
-        <label [for]="item">
-          <img [src]="'assets/' + item.toLowerCase() + '.png'" alt="" />
-          {{ item }}
+    <div class="btn-holder">
+      <ng-container [formGroup]="languageFrom">
+        @for (item of languages; track item) {
+        <div class="p-field-radiobutton">
+          <p-radioButton
+          class="dummyInput"
+            [inputId]="item"
+            [value]="item"
+            formControlName="selected"
+          ></p-radioButton>
+          <label [for]="item">
+            <img [src]="'assets/' + item.toLowerCase() + '.png'" alt="" />
+            {{ item }}
         </label>
       </div>
-      }
-    </ng-container>
+        }
+      </ng-container>
+    </div>
   </div>
 </p-card>
