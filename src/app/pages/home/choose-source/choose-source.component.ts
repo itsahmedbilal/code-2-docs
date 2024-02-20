@@ -4,9 +4,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { TitleCasePipe } from '@angular/common';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-interface MenuOptions {
+interface SelectedFile {
   name: string;
-  value: string;
 }
 
 @Component({
@@ -24,6 +23,7 @@ interface MenuOptions {
 })
 export class ChooseSourceComponent {
   selectedSource: string = '';
+  selectedFiles: SelectedFile[] = [];
   @Input() form!: FormGroup;
 
   constructor() {}
@@ -35,7 +35,12 @@ export class ChooseSourceComponent {
   onFolderSelect(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement.files) {
-      console.log(inputElement.files);
+      for (let i = 0; i < inputElement.files.length; i++) {
+        const file = inputElement.files.item(i);
+        if (file) {
+          this.selectedFiles.push({ name: file.name });
+        }
+      }
     }
   }
 
@@ -47,7 +52,16 @@ export class ChooseSourceComponent {
     event.preventDefault();
     const files = event.dataTransfer?.files;
     if (files) {
-      console.log(files);
+      for (let i = 0; i < files.length; i++) {
+        const file = files.item(i);
+        if (file) {
+          this.selectedFiles.push({ name: file.name });
+        }
+      }
     }
+  }
+
+  removeFile(index: number) {
+    this.selectedFiles.splice(index, 1);
   }
 }

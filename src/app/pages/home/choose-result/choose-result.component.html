@@ -3,13 +3,19 @@
   [subheader]="'Please select the following' | titlecase"
 >
   <div class="choose_results">
-    <form [formGroup]="resultForm">
+    <ng-container [formGroup]="resultForm">
       <div class="btn-holder group">
         @for (option of options; track $index) {
-        <div class="p-field-radiobutton">
+        <div
+          class="p-field-radiobutton"
+          [ngClass]="{
+            active: resultForm.get('type')?.value === option.value
+          }"
+        >
           <p-radioButton
             [value]="option.value"
-            formControlName="selected"
+            formControlName="type"
+            [inputId]="option.id"
             class="dummyInput"
           ></p-radioButton>
           <label for="{{ option.id }}">
@@ -19,6 +25,7 @@
         </div>
         }
       </div>
-    </form>
+    </ng-container>
   </div>
+  {{ resultForm.get("type")?.value }}
 </p-card>

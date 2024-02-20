@@ -54,6 +54,10 @@ export class ChooseResultComponent {
   ];
 
   get resultForm(): FormGroup {
-    return this.form.get('language') as FormGroup;
+    return this.form.get('output') as FormGroup;
+  }
+
+  test() {
+    console.log(this.form.value);
   }
 }

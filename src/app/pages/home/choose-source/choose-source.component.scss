@@ -46,7 +46,31 @@
 
     span {
       color: #c41f3e;
-      font-size: 30px
+      font-size: 30px;
     }
   }
+}
+
+.selected-files {
+  margin-top: 20px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.file-icon {
+  margin-right: 10px;
+}
+
+.file-name {
+  font-size: 16px;
+  color: #333;
+}
+
+.remove-icon {
+  margin-left: auto;
+  cursor: pointer;
 }

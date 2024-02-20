@@ -6,9 +6,14 @@
     <div class="btn-holder">
       <ng-container [formGroup]="languageFrom">
         @for (item of languages; track item) {
-        <div class="p-field-radiobutton">
+        <div
+          class="p-field-radiobutton"
+          [ngClass]="{
+            active: languageFrom.get('selected')?.value === item
+          }"
+        >
           <p-radioButton
-          class="dummyInput"
+            class="dummyInput"
             [inputId]="item"
             [value]="item"
             formControlName="selected"
@@ -16,8 +21,8 @@
           <label [for]="item">
             <img [src]="'assets/' + item.toLowerCase() + '.png'" alt="" />
             {{ item }}
-        </label>
-      </div>
+          </label>
+        </div>
         }
       </ng-container>
     </div>
