@@ -61,13 +61,13 @@ export class HomeComponent {
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       source: this.fb.group({
-        path: ['', Validators.required],
+        path: [''],
       }),
       language: this.fb.group({
-        selected: ['Java', Validators.required],
+        selected: ['Java'],
       }),
       output: this.fb.group({
-        type: ['', Validators.required],
+        type: [''],
       }),
     });
   }
