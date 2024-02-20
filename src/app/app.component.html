@@ -1,9 +1,42 @@
-<div class="grid-container">
-  <header>header</header>
-  <aside>
-  </aside>
-  <main>
-    <router-outlet />
-  </main>
-  <footer>footer</footer>
+<div class="page-holder">
+  <header class="header page-sidebar">
+    <strong class="logo">
+      <a href="#">
+        <img src="assets/Logo.png" alt="logo">
+      </a>
+    </strong>
+    <nav class="sidebar-nav">
+      <ul class="nav-list">
+        <li>
+          <a href="#" class="active">
+								<span class="sidebar-nav-icon">
+									<img src="assets/layers.png" alt="">
+								</span>
+            Code to Doc
+          </a>
+        </li>
+        <li>
+          <a href="#">
+								<span class="sidebar-nav-icon">
+									<img src="assets/list.png" alt="">
+								</span>
+            Docs list
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="page-mainHolder">
+    <main class="main page-mainHolder">
+      <div class="section-holder row">
+        <router-outlet />
+      </div>
+    </main>
+  </div>
+<!--  <header>header</header>-->
+<!--  <aside>-->
+<!--  </aside>-->
+<!--  <main>-->
+<!--  </main>-->
+<!--  <footer>footer</footer>-->
 </div>

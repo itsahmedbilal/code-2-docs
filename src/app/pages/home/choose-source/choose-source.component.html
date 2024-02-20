@@ -3,50 +3,59 @@
   [subheader]="'Please select the following' | titlecase"
 >
   <div class="choose-source-layout">
-    <div class="options">
-      <p-radioButton
-        name="selected-source"
-        value="system"
-        [(ngModel)]="selectedSource"
-        inputId="rb1"
-      ></p-radioButton>
-      <label for="rb1">
-        <img class="icon" src="assets/folder.png" alt="" />
-        Select Folder
-      </label>
-
-      <p-radioButton
-        name="selected-source"
-        value="github"
-        [(ngModel)]="selectedSource"
-        inputId="rb2"
-      ></p-radioButton>
-      <label for="rb2">
-        <img class="icon" src="assets/github.png" alt="" />
-        Github
-      </label>
-
-      <p-radioButton
-        name="selected-source"
-        value="servers"
-        [(ngModel)]="selectedSource"
-        inputId="rb3"
-      ></p-radioButton>
-      <label for="rb3">
-        <img src="assets/servers.png" alt="" />
-        Server Path
-      </label>
-
-      <p-radioButton
-        name="selected-source"
-        value="code"
-        [(ngModel)]="selectedSource"
-        inputId="rb4"
-      ></p-radioButton>
-      <label for="rb4">
-        <img src="assets/code.png" alt="" />
-        Text
-      </label>
+    <div class="btn-holder">
+      <div class="btn-box">
+        <p-radioButton
+          name="selected-source"
+          value="system"
+          [(ngModel)]="selectedSource"
+          inputId="rb1"
+          class="dummyInput"
+        ></p-radioButton>
+        <label for="rb1">
+          <img class="icon" src="assets/folder.png" alt="" />
+          Select Folder
+        </label>
+      </div>
+      <div class="btn-box">
+        <p-radioButton
+          name="selected-source"
+          value="github"
+          [(ngModel)]="selectedSource"
+          inputId="rb2"
+          class="dummyInput"
+        ></p-radioButton>
+        <label for="rb2">
+          <img class="icon" src="assets/github.png" alt="" />
+          Github
+        </label>
+      </div>
+      <div class="btn-box">
+        <p-radioButton
+          name="selected-source"
+          value="servers"
+          [(ngModel)]="selectedSource"
+          inputId="rb3"
+          class="dummyInput"
+        ></p-radioButton>
+        <label for="rb3">
+          <img src="assets/servers.png" alt="" />
+          Server Path
+        </label>
+      </div>
+      <div class="btn-box">
+        <p-radioButton
+          name="selected-source"
+          value="code"
+          [(ngModel)]="selectedSource"
+          inputId="rb4"
+          class="dummyInput"
+        ></p-radioButton>
+        <label for="rb4">
+          <img src="assets/code.png" alt="" />
+          Text
+        </label>
+      </div>
     </div>
     @if(selectedSource === 'system') {
     <ng-container [formGroup]="sourceFromGroup">
@@ -55,6 +64,7 @@
         (dragover)="onDragOver($event)"
         (drop)="onDrop($event)"
       >
+      <label for="file" class="file-holder">
         <input
           type="file"
           formControlName="path"
@@ -62,8 +72,15 @@
           webkitdirectory
           directory
           multiple
+          class="dummyInput"
         />
-        <p>Drag & drop files here</p>
+        <span class="upload-icon">
+          <img class="icon" src="assets/file.png" alt="" />
+        </span>
+        <h3 class="dynamic-message"> Drag &amp; drop any file here </h3>
+        <span class="or">&amp;</span>
+        <span class="browse-files-text"><span> Browse File </span> from device </span>
+        </label>
       </div>
     </ng-container>
     }
