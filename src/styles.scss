@@ -168,11 +168,7 @@ img {
     color: #c41f3e;
   }
   .p-card-subtitle {
-<<<<<<< Updated upstream
     color: #333;
-=======
-    color: #111;
->>>>>>> Stashed changes
   }
 }
 
@@ -211,26 +207,17 @@ img {
       }
       &:hover {
         background: #c41f3e;
-<<<<<<< Updated upstream
         color: #fff;
       }
       &.active {
         label {
           background: #c41f3e;
         }
-=======
->>>>>>> Stashed changes
       }
     }
     /* Checked */
     //[ng-reflect-model="system"] + label
-<<<<<<< Updated upstream
 
-=======
-    //.ng-touched + label {
-    //  background: #c41f3e;
-    //}
->>>>>>> Stashed changes
   }
 }
 
@@ -245,12 +232,9 @@ img {
     display: flex;
     flex-wrap: wrap;
   }
-<<<<<<< Updated upstream
   .p-field-radiobutton {
 
   }
-=======
->>>>>>> Stashed changes
   /* Hide inputs */
   input {
     position: absolute;
@@ -269,11 +253,8 @@ img {
     transition: all 0.25s cubic-bezier(0.25, 0.25, 0.5, 1.9);
     z-index: 1;
     width: 150px;
-<<<<<<< Updated upstream
     border: 1px solid #fff;
     border-radius: 15px;
-=======
->>>>>>> Stashed changes
     &::before {
       content: "";
       position: absolute;
@@ -295,7 +276,6 @@ img {
     }
     &:hover {
       color: #c41f3e;
-<<<<<<< Updated upstream
       border-color: #c41f3e;
     }
   }
@@ -313,21 +293,6 @@ img {
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
         border-radius: 15px;
       }
-=======
-    }
-  }
-  /* Checked */
-  input:checked + label {
-    padding-left: 1rem;
-    color: #111;
-    &::before {
-      width: 100%;
-      height: 100%;
-      background: #c41f3e;
-      border: 0;
-      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
->>>>>>> Stashed changes
     }
   }
 
@@ -338,7 +303,6 @@ img {
     width: 250px;
     padding: 0.7rem;
     line-height: 1.2;
-<<<<<<< Updated upstream
     &:hover {
       color: #c41f3e;
       border-color: #c41f3e;
@@ -357,19 +321,6 @@ img {
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
         border-radius: 15px;
       }
-=======
-  }
-  input:checked + label {
-    padding-left: 1rem;
-    color: #111;
-    &::before {
-      width: 100%;
-      height: 100%;
-      background: #c41f3e;
-      border: 0;
-      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
->>>>>>> Stashed changes
     }
   }
 }

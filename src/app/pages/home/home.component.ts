@@ -61,11 +61,7 @@ export class HomeComponent {
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       source: this.fb.group({
-<<<<<<< Updated upstream
         path: [''],
-=======
-        path: ['',],
->>>>>>> Stashed changes
       }),
       language: this.fb.group({
         selected: ['Java'],
