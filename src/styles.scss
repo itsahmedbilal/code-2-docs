@@ -168,6 +168,7 @@ img {
     color: #c41f3e;
   }
   .p-card-subtitle {
+<<<<<<< Updated upstream
     color: #333;
 =======
     color: #111;
@@ -210,16 +211,20 @@ img {
       }
       &:hover {
         background: #c41f3e;
+<<<<<<< Updated upstream
         color: #fff;
       }
       &.active {
         label {
           background: #c41f3e;
         }
+=======
+>>>>>>> Stashed changes
       }
     }
     /* Checked */
     //[ng-reflect-model="system"] + label
+<<<<<<< Updated upstream
 
 =======
     //.ng-touched + label {
@@ -240,6 +245,7 @@ img {
     display: flex;
     flex-wrap: wrap;
   }
+<<<<<<< Updated upstream
   .p-field-radiobutton {
 
   }
@@ -263,6 +269,7 @@ img {
     transition: all 0.25s cubic-bezier(0.25, 0.25, 0.5, 1.9);
     z-index: 1;
     width: 150px;
+<<<<<<< Updated upstream
     border: 1px solid #fff;
     border-radius: 15px;
 =======
@@ -288,6 +295,7 @@ img {
     }
     &:hover {
       color: #c41f3e;
+<<<<<<< Updated upstream
       border-color: #c41f3e;
     }
   }
@@ -330,6 +338,7 @@ img {
     width: 250px;
     padding: 0.7rem;
     line-height: 1.2;
+<<<<<<< Updated upstream
     &:hover {
       color: #c41f3e;
       border-color: #c41f3e;
